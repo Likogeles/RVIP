@@ -1,7 +1,18 @@
 version: '3'
 
 services:
+  db:
+    ports:
+      - 5003:5432
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=users
+    image: postgres:12.17-alpine3.19
+
   server-api:
+    depends_on:
+      - db
     build: ./server_api
     volumes:
       - ./server_api:/usr/src/app

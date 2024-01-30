@@ -5,8 +5,6 @@ app = Flask(__name__)
 
 users = [{"id": 1, "name": "Ivan", "surname": "Srgeev"}]
 
-print("123")
-
 @app.route("/")
 def index():
     response = requests.get("http://server-api")
